@@ -3,27 +3,42 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import reducer from './reducers'
 
 //REDUX
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { Provider } from 'react-redux'; //wraps around the main (App) Component
+import { createStore } from 'redux'; //creates a store
 
-const initialState = [
-  'Smells Like Teen Spirit',
-  'Enter Sandman'
-]
+// const initialState = {
+//   tracks: [
+//     'A Horse With No Name',
+//     'Back to Black'
+//   ],
+//   playlists: [
+//     'My home playlist',
+//     'My work playlist'
+//   ]
+// }
 
-function playlist (state= initialState, action) {
-  if (action.type === 'ADD_TRACK') {
-    return [
-      ...state,
-      action.payload
-    ];
-  }
-  return state;
-}
+// //  reducer
+// function playlist (state = initialState, action) {
+//   if (action.type === 'ADD_TRACK') {
+//     return {
+//       ...state,
+//       tracks: [...state.tracks, action.payload]
+//     }
+//   } else if (action === 'DELETE_TRACK') {
+//     return state;
+//   } else if (action === 'ADD_PLAYLIST') {
+//     return state;
+//   } else if (action === 'DELETE_PLAYLIST') {
+//     return state;
+//   }
+//   return state;
+// }
 
-const store = createStore(playlist);
+// creating store
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>
