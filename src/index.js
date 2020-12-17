@@ -7,7 +7,9 @@ import reducer from './reducers'
 
 //REDUX
 import { Provider } from 'react-redux'; //wraps around the main (App) Component
-import { createStore } from 'redux'; //creates a store
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux'; //creates a store
+import thunk from 'redux-thunk';
 
 // reducer stored separateky now
 // const initialState = {
@@ -39,7 +41,8 @@ import { createStore } from 'redux'; //creates a store
 // }
 
 // creating store
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// composeWithDevTools = compose + adds Redux-Devtools to everything in ()
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
