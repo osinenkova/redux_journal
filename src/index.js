@@ -9,6 +9,7 @@ import reducer from './reducers'
 import { Provider } from 'react-redux'; //wraps around the main (App) Component
 import { createStore } from 'redux'; //creates a store
 
+// reducer stored separateky now
 // const initialState = {
 //   tracks: [
 //     'A Horse With No Name',

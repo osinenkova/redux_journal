@@ -1,7 +1,4 @@
-const initialState = [
-  'A Horse With No Name',
-  'Back to Black'
-]
+const initialState = []
 
 //  reducer
 export default function playlist (state = initialState, action) {
